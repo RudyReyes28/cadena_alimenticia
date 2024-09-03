@@ -1,0 +1,106 @@
+#mapa-pesca {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(5, 50px);
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.celda {
+    width: 50px;
+    height: 50px;
+    background-color: lightblue;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.celda.seleccionada {
+    background-color: yellow;
+}
+
+
+.celda.aparicion{
+    background-color: red;
+}
+
+.celda.pez{
+    width: 50px;
+    height: 50px;
+
+
+    background: url('../../public/imagenes/imagen_pez.png');
+    background-size:contain;
+
+}
+
+.celda.tiburon{
+    width: 50px;
+    height: 50px;
+
+
+    background: url('../../public/imagenes/tiburon.png');
+    background-size:contain;
+}
+/*
+
+#espaciojuego {
+    width: 500px;
+    height: 500px;
+    left: 100px;
+    margin: 100px auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #000;
+}
+
+.contenedor {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}*/
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-centro {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000; /* Borde para ver el contenedor */
+}
+
+.contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centrar texto dentro del contenido */
+}
+
+.temp{
+    width: 100px;
+    position: absolute;
+
+    color: red;
+    font-family: Verdana;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+}
