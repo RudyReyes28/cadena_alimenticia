@@ -20,7 +20,6 @@ function Loop() {
     requestAnimationFrame(Loop);
 }
 
-//****** GAME LOGIC ********//
 
 var sueloY = 70;
 var velY = 0;
@@ -215,24 +214,62 @@ function GanarPuntos() {
 function GanarSoles() {
     soles++;
     textoSoles.innerText = soles;
-    if(score == 5){
-        //gameVel = 1.1;
-        //contenedor.classList.add("mediodia");
-    }else if(score == 10) {
-        //gameVel = 1.5;
-        //contenedor.classList.add("tarde");
-    } else if(score == 20) {
-        //gameVel = 2;
-        //contenedor.classList.add("noche");
-    }
-    //suelo.style.animationDuration = (3/gameVel)+"s";
+    
+    
 }
 
+
+/*function GameOver() {
+    Estrellarse();
+    gameOver.style.display = "block";
+
+
+}*/
 
 function GameOver() {
     Estrellarse();
-    gameOver.style.display = "block";
+    const gameOverPopup = document.getElementById('gameOverPopup');
+    gameOverPopup.style.display = "block";
+
+    // Manejar el botón de reinicio
+    document.getElementById('restartButton').addEventListener('click', function() {
+        gameOverPopup.style.display = "none"; // Ocultar la ventana emergente
+      
+        obstaculos.forEach(obstaculo => obstaculo.remove());
+        obstaculosSol.forEach(sol => sol.remove());
+sueloY = 70;
+ velY = 0;
+ impulso = 900;
+ gravedad = 2500;
+
+ plantaPosX = 70;
+ plantaPosY = sueloY; 
+
+ sueloX = 0;
+ velEscenario = 1280/3;
+ gameVel = 1;
+ score = 0;
+ soles = 0;
+
+ parado = false;
+ saltando = false;
+
+ obstaculos = [];
+
+ obstaculosSol = [];
+
+ textoScore.innerText = score;
+        textoSoles.innerText = soles;
+        Init(); // Reiniciar el juego
+    });
+
+    // Manejar el botón de salida
+    document.getElementById('quitButton').addEventListener('click', function() {
+        // Lógica para salir o detener el juego
+        gameOverPopup.style.display = "none"; // Ocultar la ventana emergente
+    });
 }
+
 
 function DetectarColision() {
     for (var i = 0; i < obstaculos.length; i++) {
@@ -255,10 +292,14 @@ function DetectarColisionSol() {
         }else{
             if(IsCollision(planta, obstaculosSol[i], 10, 30, 15, 20)) {
                 GanarSoles();
+                obstaculosSol[i].remove();
+                obstaculosSol.splice(i, 1);
             }
         }
     }
 }
+
+
 
 function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft) {
     var aRect = a.getBoundingClientRect();
