@@ -1,0 +1,124 @@
+#game-wrapper {
+    width: 800px; /* Ancho deseado */
+    height: 400px; /* Alto deseado */
+    margin: 0 auto; /* Centrar horizontalmente */
+    display: flex;
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    position: relative;
+    overflow: hidden; /* Esconder el desbordamiento */
+    border: 2px solid #000; /* Borde para ver el contenedor */
+    top: 30px;
+}
+
+.contenedor {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/*#background {
+    width: 300%; 
+    height: 100%;
+    background-image: url('../../public/imagenes/imagen_montania.jpg');
+    background-repeat: repeat-x;
+    background-size: contain; 
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+*/
+
+.suelo {
+    width: 300%;
+    height: 100%;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background: url('../../public/imagenes/imagen_montania.jpg') repeat-x 0px 0px;
+    background-size:contain;
+
+}
+/*.planta {
+    width: 80px;
+    height:80px;
+    
+    background-image: url('../../public/imagenes/imagen_planta.png');
+    background-size: contain;
+    position: absolute;
+    bottom: 70px;
+    left: 250px;
+    transition: bottom 0.3s ease, height 0.3s ease;
+}*/
+.planta {
+    width: 80px;
+    height: 80px;
+
+    position: absolute;
+    bottom: 22px;
+    left: 42px;
+    z-index: 2;
+
+    background: url('../../public/imagenes/imagen_planta.png') repeat-x 0px 0px;
+    background-size: contain;
+    background-position-x: 0px;
+
+}
+
+
+/* Obstáculo */
+/*.conejo {
+    width: 70px;
+    height: 70px;
+    background-image: url('../../public/imagenes/imagen_conejo.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 70px; 
+    left: 500px; 
+}
+*/
+.conejo{
+    width: 70px;
+    height: 70px;
+
+    position: absolute;
+    bottom: 16px;
+    left: 600px;
+    z-index: 1;
+
+    background: url('../../public/imagenes/imagen_conejo.png') no-repeat;
+}
+
+.score{
+    width: 100px;
+    height: 30px;
+
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 10;
+
+    color: #d48871;
+    font-family: Verdana;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.game-over{
+    display: none;
+
+    position: absolute;
+    width: 100%;
+
+
+    text-align: center;
+    color: #7e928b;
+    font-size: 30px;
+    font-family: Verdana;
+    font-weight: 700;
+}
