@@ -52,7 +52,7 @@ var obstaculosSol = [];
 
 var tiempoInicio; // Variable para almacenar el tiempo de inicio
 var tiempoTranscurrido = 0; // Tiempo total transcurrido en segundos
-var textoTemporizador; 
+var textoTemporizador;
 
 var contenedor;
 var planta;
@@ -92,7 +92,7 @@ function Update() {
 }
 
 
-function IniciarTemporizador(){
+function IniciarTemporizador() {
     var tiempoAhora = new Date();
     tiempoTranscurrido = Math.floor((tiempoAhora - tiempoInicio) / 1000); // Calcula el tiempo en segundos
     textoTemporizador.innerText = tiempoTranscurrido;
@@ -235,57 +235,85 @@ function GanarSoles() {
 }
 
 
-/*function GameOver() {
-    Estrellarse();
-    gameOver.style.display = "block";
-
-
-}*/
 
 function GameOver() {
     Estrellarse();
     const gameOverPopup = document.getElementById('gameOverPopup');
     gameOverPopup.style.display = "block";
+    const nombreUsuario = obtenerNombreUsuario();
 
-    // Manejar el botón de reinicio
-    document.getElementById('restartButton').addEventListener('click', function () {
-        gameOverPopup.style.display = "none"; // Ocultar la ventana emergente
+    const data = {
+        score: score,
+        soles: soles,
+        temporizador: tiempoTranscurrido,
+        nombre: nombreUsuario
+    };
 
-        obstaculos.forEach(obstaculo => obstaculo.remove());
-        obstaculosSol.forEach(sol => sol.remove());
-        sueloY = 70;
-        velY = 0;
-        impulso = 900;
-        gravedad = 2500;
+    // Enviar los datos al servidor usando AJAX
+    fetch('../../../app/controlador/TerminarJuegoProductor.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Datos guardados:', data);
 
-        plantaPosX = 70;
-        plantaPosY = sueloY;
+            // Manejar el botón de reinicio
+            document.getElementById('restartButton').addEventListener('click', function () {
 
-        sueloX = 0;
-        velEscenario = 1280 / 3;
-        gameVel = 1;
-        score = 0;
-        soles = 0;
-        temporizador = 0;
 
-        parado = false;
-        saltando = false;
+                gameOverPopup.style.display = "none"; // Ocultar la ventana emergente
 
-        obstaculos = [];
 
-        obstaculosSol = [];
 
-        textoScore.innerText = score;
-        textoSoles.innerText = soles;
-        textoTemporizador.innerText = temporizador;
-        Init(); // Reiniciar el juego
-    });
+                obstaculos.forEach(obstaculo => obstaculo.remove());
+                obstaculosSol.forEach(sol => sol.remove());
+                sueloY = 70;
+                velY = 0;
+                impulso = 900;
+                gravedad = 2500;
 
-    // Manejar el botón de salida
-    document.getElementById('quitButton').addEventListener('click', function () {
-        // Lógica para salir o detener el juego
-        gameOverPopup.style.display = "none"; // Ocultar la ventana emergente
-    });
+                plantaPosX = 70;
+                plantaPosY = sueloY;
+
+                sueloX = 0;
+                velEscenario = 1280 / 3;
+                gameVel = 1;
+                score = 0;
+                soles = 0;
+                tiempoTranscurrido = 0;
+
+                parado = false;
+                saltando = false;
+
+                obstaculos = [];
+
+                obstaculosSol = [];
+
+                textoScore.innerText = score;
+                textoSoles.innerText = soles;
+                textoTemporizador.innerText = tiempoTranscurrido;
+                Init(); // Reiniciar el juego
+
+
+            });
+
+            // Manejar el botón de salida
+            document.getElementById('quitButton').addEventListener('click', function () {
+                // Lógica para salir o detener el juego
+                gameOverPopup.style.display = "none"; // Ocultar la ventana emergente
+                window.location.href = '../../../app/vista/index.php';
+
+            });
+
+        })
+        .catch((error) => {
+            console.log('Error al guardar los datos:', error);
+            console.log('Error al guardar los datos:', data);
+        });
 }
 
 
@@ -329,4 +357,9 @@ function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft)
         ((aRect.left + aRect.width - paddingRight) < bRect.left) ||
         (aRect.left + paddingLeft > (bRect.left + bRect.width))
     );
+}
+
+function obtenerNombreUsuario() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('usuario');
 }
