@@ -17,7 +17,7 @@ class ConexionBaseDatos {
 
     public function insertarResultadoConsumidor($nombre, $peces, $tiburones, $tiempo) {
         $idMinijuego = 2;
-        $stmt = $this->conexion->prepare("INSERT INTO consumidores (idminijuego, idusuario, peces, tiburones, jugado) VALUES (?,?, ?, ?, ?)");
+        $stmt = $this->conexion->prepare("INSERT INTO consumidores (idminijuego, idusuario, peces, tiburones, tiempo) VALUES (?,?, ?, ?, ?)");
         $stmt->bind_param("iiiii", $idMinijuego ,$nombre, $peces, $tiburones, $tiempo);
         
         if ($stmt->execute()) {
@@ -40,6 +40,10 @@ class ConexionBaseDatos {
         }
 
         $stmt->close();
+    }
+
+    public function getConexion() {
+        return $this->conexion;
     }
 
 

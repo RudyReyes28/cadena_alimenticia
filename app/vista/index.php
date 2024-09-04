@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Índice de Juegos</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .game-title {
-            margin: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: blue;
-            text-decoration: underline;
-        }
-    </style>
+    <link href="../../public/css/index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <h1>Índice de Juegos</h1>
-    <div class="game-title" onclick="seleccionarJuego('productores')">Productores</div>
-    <div class="game-title" onclick="seleccionarJuego('consumidores')">Consumidores</div>
-    <div class="game-title" onclick="seleccionarJuego('juego3')">Juego 3</div>
+    <div class="game-container">
+        <div class="game-box" onclick="seleccionarJuego('productores')">
+            <img src="../../public/imagenes/index_productor.jpg" alt="Productores" class="game-image">
+            <div class="game-title">Productores</div>
+        </div>
+        <div class="game-box" onclick="seleccionarJuego('consumidores')">
+            <img src="../../public/imagenes/index_consumidor.jpg" alt="Consumidores" class="game-image">
+            <div class="game-title">Consumidores</div>
+        </div>
+        <div class="game-box" onclick="seleccionarJuego('juego3')">
+            <img src="ruta_a_imagen_juego3.jpg" alt="Juego 3" class="game-image">
+            <div class="game-title">Juego 3</div>
+        </div>
+        <div class="game-box" onclick="seleccionarJuego('reportes')">
+            <img src="ruta_a_imagen_juego3.jpg" alt="Reportes" class="game-image">
+            <div class="game-title">Reportes</div>
+        </div>
+    </div>
 
     <script>
         function seleccionarJuego(juego) {
