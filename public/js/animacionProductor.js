@@ -124,9 +124,7 @@ function MoverPlanta() {
 function TocarSuelo() {
     plantaPosY = sueloY;
     velY = 0;
-    if (saltando) {
-        //planta.classList.add("dino-corriendo");
-    }
+    
     saltando = false;
 }
 

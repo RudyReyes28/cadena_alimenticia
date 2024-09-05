@@ -27,11 +27,6 @@
             <p class="game-description">Sin descripcion.</p>
 
         </div>
-        <div class="game-box" onclick="seleccionarReporte('reportes')">
-            <img src="ruta_a_imagen_juego3.jpg" alt="Reportes" class="game-image">
-            <div class="game-title">Reporte 4</div>
-            <p class="game-description">Sin descripcion.</p>
-        </div>
     </div>
 
     <br>

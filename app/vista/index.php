@@ -17,9 +17,9 @@
             <img src="../../public/imagenes/index_consumidor.jpg" alt="Consumidores" class="game-image">
             <div class="game-title">Consumidores</div>
         </div>
-        <div class="game-box" onclick="seleccionarJuego('juego3')">
-            <img src="ruta_a_imagen_juego3.jpg" alt="Juego 3" class="game-image">
-            <div class="game-title">Juego 3</div>
+        <div class="game-box" onclick="seleccionarJuego('descomponedor')">
+            <img src="ruta_a_imagen_juego3.jpg" alt="descomponedor" class="game-image">
+            <div class="game-title">Descomponedor</div>
         </div>
         <div class="game-box" onclick="seleccionarJuego('reportes')">
             <img src="ruta_a_imagen_juego3.jpg" alt="Reportes" class="game-image">

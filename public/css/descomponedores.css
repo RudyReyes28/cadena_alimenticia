@@ -1,0 +1,168 @@
+#game-wrapper {
+    width: 600px; /* Ancho deseado */
+    height: 550px; /* Alto deseado */
+    margin: 0 auto; /* Centrar horizontalmente */
+    display: flex;
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    position: relative;
+    overflow: hidden; /* Esconder el desbordamiento */
+    border: 2px solid #000; /* Borde para ver el contenedor */
+    top: 30px;
+}
+
+.contenedor {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.descomponedor {
+    width:80px;
+    height: 70px;
+
+    position: absolute;
+    bottom:90px;
+    left: 42px;
+    z-index: 2;
+
+    background: url('../../public/imagenes/imagen_descomponedor.png') repeat-x 0px 0px;
+    background-size: contain;
+    background-position-x: 0px;
+
+   
+}
+
+
+.suelo {
+    width: 300%;
+    height: 100%;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background: url('../../public/imagenes/imagen_montania.jpg') repeat-x 0px 0px;
+    background-size:contain;
+
+}
+
+.plastico{
+    width: 60px;
+    height: 96px;
+
+    position: absolute;
+    bottom: 40px;
+    left: 600px;
+    z-index: 1;
+
+    background: url('../../public/imagenes/plastico.png') no-repeat;
+    background-size: contain;
+}
+
+.plastico2{
+    width: 60px;
+    height: 96px;
+
+    position: absolute;
+    bottom: 40px;
+    left: 600px;
+    z-index: 1;
+
+    background: url('../../public/imagenes/plastico2.png') no-repeat;
+    background-size: contain;
+}
+
+.materia{
+    width: 55px;
+    height: 96px;
+
+    position: absolute;
+    bottom: 80px;
+    left: 600px;
+    z-index: 1;
+
+    background: url('../../public/imagenes/materia.png') no-repeat;
+    background-size: contain;
+}
+
+.materia2{
+    width: 98px;
+    height: 70px;
+
+    background: url('../../public/imagenes/imagen_conejo.png') no-repeat;
+    background-size: contain;
+}
+
+
+.score{
+    width: 100px;
+    height: 30px;
+
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 10;
+
+    color: #d48871;
+    font-family: Verdana;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+}
+
+
+
+.temp{
+    width: 100px;
+    height: 30px;
+
+    position: absolute;
+    top: 5px;
+    left:30px;
+    z-index: 10;
+
+    color: red;
+    font-family: Verdana;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.game-over{
+    display: none;
+
+    position: absolute;
+    width: 100%;
+
+
+    text-align: center;
+    color: #7e928b;
+    font-size: 30px;
+    font-family: Verdana;
+    font-weight: 700;
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+}

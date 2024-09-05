@@ -26,9 +26,9 @@ if (isset($_GET['juego']) && isset($_GET['usuario'])) {
         // Redirige a la página del juego 2
         header("Location:../vista/html/juego_consumidores.php?usuario=$idUsuario");
         exit();
-    } elseif ($juego == 'juego3') {
+    } elseif ($juego == 'descomponedor') {
         // Redirige a la página del juego 3
-        header("Location: juego3.php?usuario=$idUsuario");
+        header("Location: ../vista/html/juego_descomponedores.html?usuario=$idUsuario");
         exit();
     }elseif ($juego == 'reportes') {
         // Redirige a la página del juego 3

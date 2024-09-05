@@ -1,20 +1,12 @@
 <?php
 require_once 'Productores.php';
-
+require_once 'Conexion.php';
 class ReportesProductoresDB {
     private $conexion;
 
     public function __construct() {
-        $host = 'localhost'; 
-        $usuario = 'root';
-        $password = '1234';
-        $base_datos = 'cadena_alimenticia';
-
-        $this->conexion = new mysqli($host, $usuario, $password, $base_datos);
-
-        if ($this->conexion->connect_error) {
-            die("Error de conexión: " . $this->conexion->connect_error);
-        }
+        $conectar = new Conexion();
+        $this->conexion = $conectar->getConexion();
     }
 
     public function obtenerTodosProductores() {
