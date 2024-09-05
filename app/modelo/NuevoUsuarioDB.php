@@ -1,9 +1,11 @@
 <?php
+require_once 'Conexion.php';
 class NuevoUsuario {
     private $conexion;
 
-    public function __construct($conexion) {
-        $this->conexion = $conexion;
+    public function __construct() {
+        $conectar = new Conexion();
+        $this->conexion = $conectar->getConexion();
     }
 
     public function crearUsuario($nombre) {
@@ -14,6 +16,10 @@ class NuevoUsuario {
         $id = $stmt->insert_id;
         $stmt->close();
         return $id;
+    }
+
+    public function cerrarConexion() {
+        $this->conexion->close();
     }
 }
 

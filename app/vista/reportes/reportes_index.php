@@ -22,9 +22,9 @@
 
         </div>
         <div class="game-box" onclick="seleccionarReporte('reporte3')">
-            <img src="ruta_a_imagen_juego3.jpg" alt="reporte3" class="game-image">
+            <img src="../../../public/imagenes/index_descomponedor.jpg" alt="reporte3" class="game-image">
             <div class="game-title">Reporte 3</div>
-            <p class="game-description">Sin descripcion.</p>
+            <p class="game-description">Aqui encontraras los reportes de todos los usuarios que jugaron el juego de 'Descomponedores'.</p>
 
         </div>
     </div>

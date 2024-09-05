@@ -12,18 +12,26 @@
         <div class="game-box" onclick="seleccionarJuego('productores')">
             <img src="../../public/imagenes/index_productor.jpg" alt="Productores" class="game-image">
             <div class="game-title">Productores</div>
+            <p class="game-description">Evita los consumidores y captura soles para producir oxigeno.</p>
+
         </div>
         <div class="game-box" onclick="seleccionarJuego('consumidores')">
             <img src="../../public/imagenes/index_consumidor.jpg" alt="Consumidores" class="game-image">
             <div class="game-title">Consumidores</div>
+            <p class="game-description">Prueba suerte al capturar peces pero ten cuidado con los tiburones.</p>
+
         </div>
         <div class="game-box" onclick="seleccionarJuego('descomponedor')">
-            <img src="ruta_a_imagen_juego3.jpg" alt="descomponedor" class="game-image">
+            <img src="../../public/imagenes/index_descomponedor.jpg" alt="descomponedor" class="game-image">
             <div class="game-title">Descomponedor</div>
+            <p class="game-description">Descompone toda la materia organica que encuentras, cuidado con la inorganica.</p>
+
         </div>
         <div class="game-box" onclick="seleccionarJuego('reportes')">
-            <img src="ruta_a_imagen_juego3.jpg" alt="Reportes" class="game-image">
+            <img src="../../public/imagenes/index_reportes.jpg" alt="Reportes" class="game-image">
             <div class="game-title">Reportes</div>
+            <p class="game-description">Revisa las puntaciones de cada juego, ¿eres el mejor?.</p>
+
         </div>
     </div>
 

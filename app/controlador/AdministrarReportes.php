@@ -18,11 +18,7 @@ if (isset($_GET['juego'])) {
         exit();
     } elseif ($reporte == 'reporte3') {
         // Redirige a la página del juego 3
-        header("Location: juego3.php");
-        exit();
-    }elseif ($reporte == 'reporte4') {
-        // Redirige a la página del juego 3
-        header("Location: ../vista/reportes/reportes_index.php");
+        header("Location: ../vista/reportes/reportes_descomponedor.php");
         exit();
     }  else {
         echo "<p>Juego no encontrado.</p>";

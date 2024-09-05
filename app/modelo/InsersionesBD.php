@@ -1,6 +1,6 @@
 <?php
 require_once 'Conexion.php';
-class ConexionBaseDatos {
+class InsersionReportesJuegos {
     
     private $conexion;
 
@@ -35,6 +35,20 @@ class ConexionBaseDatos {
 
         $stmt->close();
     }
+
+    public function insertarResultadoDescomponedor($nombre, $score, $temporizador) {
+        $idMinijuego = 3;
+        $stmt = $this->conexion->prepare("INSERT INTO descomponedores (idminijuego, idusuario, puntaje, tiempo) VALUES (?,?, ?, ?)");
+        $stmt->bind_param("iiii", $idMinijuego ,$nombre, $score, $temporizador);
+        
+        if (!$stmt->execute()) {
+            // Maneja el error si ocurre
+            throw new Exception("Error al guardar los datos: " . $this->conexion->error);
+        }
+
+        $stmt->close();
+    }
+
 
     public function getConexion() {
         return $this->conexion;

@@ -1,8 +1,8 @@
 <?php
-require_once '../../modelo/ReportesConsumidoresDB.php';
+require_once '../../modelo/ReportesDescomponedoresDB.php';
 
-$model = new ReportesConsumidoresDB();
-$consumidores = $model->obtenerTodosConsumidores();
+$model = new ReportesDescomponedoresDB();
+$descomponedores = $model->obtenerTodosDescomponedores();
 $model->cerrarConexion();
 ?>
 
@@ -11,7 +11,7 @@ $model->cerrarConexion();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reportes de Consumidores</title>
+    <title>Reportes de Descomponedores</title>
     <style>
         table {
             width: 100%;
@@ -42,7 +42,7 @@ $model->cerrarConexion();
     </style>
 </head>
 <body>
-    <h1>Reportes de Consumidores</h1>
+    <h1>Reportes de Descomponedores</h1>
     <div class="search-container">
         <input type="text" id="searchId" class="search-input" placeholder="Buscar por ID Usuario">
         <input type="text" id="searchName" class="search-input" placeholder="Buscar por Nombre Usuario">
@@ -52,19 +52,17 @@ $model->cerrarConexion();
             <tr>
                 <th data-column="idUsuario">ID Usuario</th>
                 <th data-column="nombreUsuario">Nombre Usuario</th>
-                <th data-column="peces">Peces Capturados</th>
-                <th data-column="tiburones">Tiburones</th>
+                <th data-column="puntaje">Materia Descompuesta</th>
                 <th data-column="tiempo">Tiempo</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($consumidores as $consumidor): ?>
+            <?php foreach ($descomponedores as $descomponedor): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($consumidor->idUsuario); ?></td>
-                    <td><?php echo htmlspecialchars($consumidor->nombreUsuario); ?></td>
-                    <td><?php echo htmlspecialchars($consumidor->peces); ?></td>
-                    <td><?php echo htmlspecialchars($consumidor->tiburones); ?></td>
-                    <td><?php echo htmlspecialchars($consumidor->tiempo); ?></td>
+                    <td><?php echo htmlspecialchars($descomponedor->idUsuario); ?></td>
+                    <td><?php echo htmlspecialchars($descomponedor->nombreUsuario); ?></td>
+                    <td><?php echo htmlspecialchars($descomponedor->puntaje); ?></td>
+                    <td><?php echo htmlspecialchars($descomponedor->tiempo); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

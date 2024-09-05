@@ -228,6 +228,76 @@ function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft)
 
 function GameOver() {
     Estrellarse();
+
+    const gameOverPopup = document.getElementById('gameOverPopup');
+    gameOverPopup.style.display = "block";
+    const nombreUsuario = obtenerNombreUsuario();
+
+    const data = {
+        score: score,
+        temporizador: tiempoTranscurrido,
+        nombre: nombreUsuario
+    };
+
+    // Enviar los datos al servidor usando AJAX
+    fetch('../../../app/controlador/TerminarJuegoDescomponedor.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Datos guardados:', data);
+
+            // Manejar el botón de reinicio
+            document.getElementById('restartButton').addEventListener('click', function () {
+
+
+                gameOverPopup.style.display = "none"; // Ocultar la ventana emergente
+
+
+
+                obstaculos.forEach(obstaculo => obstaculo.remove());
+                obstaculosMateria.forEach(materia => materia.remove());
+                
+                velY = 0;
+
+
+                sueloX = 0;
+                velEscenario = 1280 / 3;
+                gameVel = 0.5;
+                score = 0;
+                
+                tiempoTranscurrido = 0;
+
+                parado = false;
+                
+                obstaculos = [];
+
+                obstaculosMateria = [];
+
+                textoScore.innerText = score;
+                textoTemporizador.innerText = tiempoTranscurrido;
+                Init(); // Reiniciar el juego
+
+
+            });
+
+            // Manejar el botón de salida
+            document.getElementById('quitButton').addEventListener('click', function () {
+                // Lógica para salir o detener el juego
+                gameOverPopup.style.display = "none"; // Ocultar la ventana emergente
+                window.location.href = '../../../app/vista/index.php';
+
+            });
+
+        })
+        .catch((error) => {
+            console.log('Error al guardar los datos:', error);
+            console.log('Error al guardar los datos:', data);
+        });
     
 }
 
@@ -240,4 +310,9 @@ function Estrellarse() {
 
 function CalcularDesplazamiento() {
     return velEscenario * deltaTime * gameVel;
+}
+
+function obtenerNombreUsuario() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('usuario');
 }

@@ -1,5 +1,4 @@
 <?php
-require_once '../modelo/ConexionBD.php';
 require_once '../modelo/NuevoUsuarioDB.php';
 
 if (isset($_GET['juego']) && isset($_GET['usuario'])) {
@@ -10,12 +9,11 @@ if (isset($_GET['juego']) && isset($_GET['usuario'])) {
     echo "<p>Estás a punto de jugar: $juego</p>";
 
     //deberia revisar la conexion y crear un usuario
-    $conexionBD = new ConexionBaseDatos();
-    $usuarioDB = new NuevoUsuario($conexionBD->getConexion());
+    $usuarioDB = new NuevoUsuario();
 
     $idUsuario = $usuarioDB->crearUsuario($usuario);
 
-    $conexionBD->cerrarConexion();
+    $usuarioDB->cerrarConexion();
 
     // Redirigir al juego correspondiente
     if ($juego == 'productores') {

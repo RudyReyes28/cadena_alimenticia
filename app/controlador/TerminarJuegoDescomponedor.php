@@ -10,11 +10,10 @@ try {
     
     $nombre = $data['nombre'];
     $score = $data['score'];
-    $soles = $data['soles'];
     $temporizador = $data['temporizador'];
 
     // Llamar al método para insertar datos
-    $baseDatos->insertarResultadoProductor($nombre, $score, $soles, $temporizador);
+    $baseDatos->insertarResultadoDescomponedor($nombre, $score, $temporizador);
     
     // Cerrar conexión
     $baseDatos->cerrarConexion();

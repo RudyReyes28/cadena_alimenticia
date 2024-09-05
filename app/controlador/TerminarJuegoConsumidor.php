@@ -1,6 +1,6 @@
 <?php
 
-require_once '../modelo/ConexionBD.php';
+require_once '../modelo/InsersionesBD.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $peces = $_POST['peces'];
@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
 
     // Crear instancia del modelo
-    $baseDatos = new ConexionBaseDatos();
+    $baseDatos = new InsersionReportesJuegos();
     // Llamar al método para insertar datos
     $baseDatos->insertarResultadoConsumidor($nombre, $peces, $tiburones, $tiempo);
     // Cerrar conexión
